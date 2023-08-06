@@ -1,0 +1,145 @@
+﻿@model IPC.ViewModels.RedBoxLayoutViewModel
+@{ Layout = "_RedBoxLayout";
+
+
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+</head>
+<body>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+
+    }
+    <div class="redbox">
+
+    </div>
+
+
+
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">Clerk's Dashboard</h3>
+
+    <div class="card" style="width:95%;margin:auto">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body" style="display: flex; align-items: center; margin: auto;  ">
+            <form action="/" method="post" class="form-group row">
+                <table class="table-bordered" style="width:1000px">
+                    <tr>
+                        <td>
+                            <div class="row" style="margin:20px ">
+                                <label class="col-sm">MRN<span style="color:red">(MRN)</span></label>
+                                <textarea class="form-control" asp-page="ClerkDashboard" type="number" id="mrn">@Model.patient.PatientId</textarea>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Name<span style="color:red">(PTN)</span></label>
+                                <textarea class="form-control " type="text" id="name">@Model.patient.Name</textarea>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Date of Birth<span style="color:red">(DOB)</span></label>
+                                <textarea class="form-control" type="text" id="address">@Model.patient.Dob</textarea>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">NIC<span style="color:red">(NIC)</span></label>
+                                <textarea class="form-control" type="text" id="nic">@Model.patient.Nic</textarea>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">TP<span style="color:red">(TP)</span></label>
+                                <textarea class="form-control" type="text" id="telephone">@Model.patient.Tp</textarea>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm"> District <span style="color:red">(DIS)</span></label>
+                                <textarea class="form-control" type="text" id="district">@Model.patient.District</textarea>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Blood Group<span style="color:red">(BG)</span></label>
+                                <textarea class="form-control " type="text" id="BG">@Model.patient.Bloodgrp</textarea>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">EMAIL<span style="color:red">(EM)</span></label>
+                                <textarea class="form-control" type="text" id="email">@Model.patient.Email</textarea>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Gender<span style="color:red">(GEN)</span></label>
+                                <textarea class="form-control" type="text" id="gender">@Model.patient.Gender</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm"> Occupation <span style="color:red">(OCC)</span></label>
+                                <textarea class="form-control " type="text" id="occupation">@Model.patient.Occupation</textarea>
+                            </div>
+
+                        </td>
+
+                        <td colspan="2">
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm"> Address <span style="color:red">(ADR)</span></label>
+                                <textarea class="form-control " type="text" id="Address">@Model.patient.Address</textarea>
+                            </div>
+
+                        </td>
+
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="card-footer">
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <br />
+    <br />
+    <br />
+
+</body>
+
+</html>

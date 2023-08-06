@@ -1,0 +1,138 @@
+﻿@model IPC.ViewModels.RedBoxLayoutViewModel
+@{
+	Layout = "_RedBoxLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="~/css/SocialHistoryStyles.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+    <style>
+        .flex-container {
+            margin-top:5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">Social History</h3>
+    <br />
+    <div class="card" style="width:50%; margin:auto">
+        <div class="card-header" style="display:flex">
+
+        </div>
+        <div class="card-body" style="display: flex; align-items: center; margin: auto;  ">
+            <form action="/" method="post" class="form-group row">
+
+                <table class="table-bordered" align="center">
+                    <tr>
+                        <td>
+                            <div><label class="col-sm"> <b> Marital Status </b></label></div>
+                        </td>
+                        <td >
+                            <div class="flex-container">
+                                <div>@Html.RadioButtonFor(m => m.social.Marital_Status, "Married")</div>
+                                <div><label class="col-sm" for="Chkmar"><b>Married</b></label></div>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="flex-container">
+                                <div>@Html.RadioButtonFor(m => m.social.Marital_Status, "Single")</div>
+                                <div><label class="col-sm" for="Chksin"><b>Single</b></label></div>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div> <label class="col-sm"> <b> Smoking </b></label></div>
+                        <td>
+                            <div class="flex-container">
+                                <div>@Html.RadioButtonFor(m => m.social.Smoking, "Yes")</div>
+                                <div><label class="col-sm" for="Chksm"><b>Yes</b></label></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex-container">
+                                <div>@Html.RadioButtonFor(m => m.social.Smoking, "No")</div>
+                                <div><label class="col-sm" for="ChkNsm"><b>No</b></label></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div><label class="col-sm"> <b> No. of years Smoking:</b></label></div>
+                        </td>
+                        <td colspan="2">
+                            <div>@Html.TextBoxFor(m => m.social.Smoking_years, new { @class = "form-control" })</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div><label class="col-sm"> <b> Drugs</b></label></div>
+                        </td>
+                        <td>
+                            <div class="flex-container" >
+                                <div>@Html.RadioButtonFor(m => m.social.Drugs, "Yes")</div>
+                                <div><center><label class="col-sm" for="Chkdru"><b>Yes</b></label></center></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex-container">
+                                <div>@Html.RadioButtonFor(m => m.social.Drugs, "No")</div>
+                                <div><center><label class="col-sm" for="ChkNdru"><b>No</b></label></center></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div><label class="col-sm"> <b> Alcohol</b></label></div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="flex-container">@Html.RadioButtonFor(m => m.social.Alcohol, "Yes")</div>
+                                <div><center><label class="col-sm" for="ChkAlk"><b>Yes</b></label></center></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="flex-container">@Html.RadioButtonFor(m => m.social.Alcohol, "No")</div>
+                                <div><center><label class="col-sm" for="ChkNAlk"><b>No</b></label></center></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div><label class="col-sm"> <b> Alcohol Frequency/week:</b></label></div>
+                        </td>
+                        <td colspan="2">
+                            <div> @Html.TextBoxFor(m => m.social.Alco_freq, new { @class = "form-control" })</div>
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+            <br>
+            <br>
+        </div>
+        <div class="card-footer" style="display:flex;justify-content:center">
+            <div class="btn-pill" style="padding:10px">
+                <input type="submit" class="btn btn-pill text-white btn-block btn-primary" style="background-color:#1520A6; width:100px; margin:auto" OnClick="btnSubmit_Click" value="Submit">
+            </div>
+        </div>
+    </div>
+       
+</body>
+</html>

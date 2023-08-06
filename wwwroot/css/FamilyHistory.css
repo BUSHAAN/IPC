@@ -1,0 +1,66 @@
+ input[type="radio"]{
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 2px solid darkgray;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.sg-submit-button{
+	color: black;
+	background: #5EAFED;
+	height:40px;
+	width: 100px;
+	border-radius: 10%;
+}
+.sg-submit-button:hover{
+	font:bold;
+	color: black;
+	background:#4393E5 ;
+	height:40px;
+	width: 100px;
+}
+
+input[type="radio"]:checked {
+    background-color: #2FE72F;
+}
+
+.yel input[type="radio"]:checked {
+    background-color: yellow;
+}
+
+/* optional styles, I'm using this for centering radiobuttons */
+::placeholder {
+    text-align: center;
+}
+.style1 {
+	font-family:Arial;
+	font-size:16px;
+    width: 100px;
+    height: 30px;
+}
+
+.style3 {
+	position:relative;
+    width: 100px;
+	text-align: center;
+	 
+}
+
+.style4 {
+	position:relative;	
+    width: 200px;
+   
+}
+.table-bordered {
+	border:1px;
+	color:solid black;
+}

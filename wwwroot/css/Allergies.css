@@ -1,0 +1,138 @@
+﻿
+input[type="checkbox"] {
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 2px solid darkgray;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.sg-submit-button {
+    color: black;
+    background: #5EAFED;
+    height: 40px;
+    width: 100px;
+    border-radius: 10%;
+}
+
+    .sg-submit-button:hover {
+        font: bold;
+        color: black;
+        background: #4393E5;
+        height: 40px;
+        width: 100px;
+    }
+
+input[type="checkbox"]:checked {
+    background-color: #2FE72F;
+}
+
+.yel input[type="checkbox"]:checked {
+    background-color: yellow;
+}
+
+#btnSubmit {
+    font-weight: 700;
+}
+
+.btn-pill {
+}
+
+th, td {
+    border-radius: 5px;
+}
+
+.newStyle1 {
+    border: thin groove #0000FF;
+    border-radius: 5px;
+}
+
+.newStyle2 {
+    border: thin groove #0000FF;
+    border-radius: 5px;
+}
+
+.newStyle3 {
+    line-height: inherit;
+    border-radius: 5px;
+    border: thin groove #0000FF;
+}
+
+.newStyle4 {
+    border: thin groove #0000FF;
+    border-radius: 5px;
+}
+
+.newStyle5 {
+    border-style: none;
+    border-radius: 5px;
+}
+
+.newStyle6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    height: 611px;
+}
+
+.auto-style4 {
+    text-align: left;
+}
+
+.newStyle7 {
+    border: thin groove #C0C0C0;
+    border-radius: 5px;
+}
+
+.newStyle8 {
+    border: thin groove #C0C0C0;
+    border-radius: 5px;
+}
+
+.auto-style5 {
+    border: thin groove #C0C0C0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.auto-style6 {
+    width: 167px;
+    height: 36px;
+}
+
+.auto-style7 {
+    border: thin groove #C0C0C0;
+    width: 163px;
+    border-radius: 5px;
+    height: 52px;
+}
+
+.auto-style8 {
+    border: thin groove #C0C0C0;
+    text-align: center;
+    border-radius: 5px;
+    height: 52px;
+}
+
+.auto-style9 {
+    width: 222px;
+    height: 42px;
+    padding: 10px 10px;
+    background-color: #0000FF;
+    border: thin none #FFFFFF;
+    border-spacing: 3px;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}

@@ -1,0 +1,261 @@
+﻿@model IPC.ViewModels.RedBoxLayoutViewModel
+@{Layout = "_noRedLayout";
+}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+    <style>
+        .card {
+            transform: scale(0.9);
+            transform-origin: 50% 50%;
+        }
+
+        #searchHelp {
+            margin: -20px;
+            padding: 0px;
+            font-size: 0.75rem;
+            position: relative;
+            left: 870px;
+            bottom: 17px;
+            
+        }
+        span{
+            color:red;
+        }
+    </style>
+    <script>
+        
+        function calculateBMI() {
+            var height = document.getElementById("HEI");
+            var weight = document.getElementById("WEI");
+            var BMI (weight / (height * height));
+            document.getElementById("BMI").nodeValue = BMI;
+        }
+        
+    </script>
+</head>
+<body>
+
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">ADD Appointment Details</h3>
+
+
+
+    <form asp-controller="Account" asp-action="AddApcode" method="post" class="form-group row info">
+        <div class="red-box" style="width: 60%; height: 40px; border: 5px solid red;">
+            <input asp-for="command" type="text" style="width:stretch; border:none;text-align:center" placeholder="ADD/BACK" value=""/>
+
+        </div>
+        <div class="card" style="display:flex; width:120%; ">
+            <div class="card-header" style="display:flex; ">
+
+            </div>
+
+
+
+            <div class="card-body" style="display: flex; align-items: center; margin: auto; ">
+
+                <table class="table-bordered" style="width:stretch">
+                    <tr>
+                        <td>
+                            <div>
+                                <label class="col-sm"><p style="position:relative;top:8px;font-size:0.825rem">Appointment Code<span style="color:red">(APC)</span></p></label>
+                                <textarea asp-for="vital.AppCode" style="position:relative;bottom:8px" class="form-control" type="number" id="APC"></textarea>
+                                <span asp-validation-for="vital.AppCode"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">MRN<span style="color:red">(MRN)</span></label>
+                                <textarea asp-for="vital.UserId" class="form-control" type="number" id="MRN"></textarea>
+                                <span asp-validation-for="vital.UserId"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Vital ID<span style="color:red">(VID)</span></label>
+                                <textarea asp-for="vital.VitalId" class="form-control" type="number" id="VID"></textarea>
+                                <span asp-validation-for="vital.VitalId"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">BP<span style="color:red">(BP)</span></label>
+                                <textarea asp-for="vital.Bloodpressure" class="form-control" type="number" id="BP"></textarea>
+                                <span asp-validation-for="vital.Bloodpressure"></span>
+                            </div>
+                        </td><td>
+                                 <div>
+                                     <label class="col-sm">PO2<span style="color:red">(PO2)</span></label>
+                                     <textarea asp-for="vital.Po2" class="form-control" type="number" id="PO2"></textarea>
+                                     <span asp-validation-for="vital.Po2"></span>
+                                 </div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <div>
+                                <label class="col-sm">Pulse<span style="color:red">(PUL)</span></label>
+                                <textarea asp-for="vital.Pulse" class="form-control" type="number" id="PUL"></textarea>
+                                <span asp-validation-for="vital.Pulse"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Temperature<span style="color:red">(TEM)</span></label>
+                                <textarea asp-for="vital.Temp" class="form-control" type="number" id="TEMP"></textarea>
+                                <span asp-validation-for="vital.Temp"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Height<span style="color:red">(HEI)</span></label>
+                                <textarea asp-for="vital.Height" class="form-control" type="number" id="HEI" onkeyup="calculateBMI()"></textarea>
+                                <span asp-validation-for="vital.Height"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Weight<span style="color:red">(WEI)</span></label>
+                                <textarea asp-for="vital.Weight" class="form-control" type="number" id="WEI" onkeyup="calculateBMI()"></textarea>
+                                <span asp-validation-for="vital.Weight"></span>
+                            </div>
+                        </td>
+                      
+                    </tr>
+                    
+                        
+                    
+                </table>
+
+    </form>
+    </div>
+    
+    </div>
+    <script>
+        $(document).ready(() => {
+            $('.info').on('submit', () => {
+                return false;
+            });
+        });
+        $('.info').keypress((e) => {
+            if (e.which === 13) {
+                $('.info').submit();
+                alert('Form submitted successfully.')
+            }
+        })
+    </script>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Past Medical History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Family History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Social History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Allergies</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Current Medications</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Lab Reports</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Images</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Presenting Illness</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Snapshot</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Review of System</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Assessment</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Orders</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Referrals</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Follows Up</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

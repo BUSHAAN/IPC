@@ -1,0 +1,313 @@
+﻿@model IPC.ViewModels.RedBoxLayoutViewModel
+@{Layout = "_RedBoxLayout";
+}
+
+@{ 
+    var weight = Convert.ToDouble(Model.vital.Weight);
+    var height = Convert.ToDouble(Model.vital.Height);
+    var BMI = "";
+    var AGE = "";
+    if (height != 0.0)
+    {
+        BMI = Convert.ToString(weight / (height * height));
+    }
+    else
+    {
+        BMI = "";
+    }
+
+    if (Model.patient.Dob != null)
+    {
+
+        var birthyear = Convert.ToInt32(Model.patient.Dob.Substring(0, 4));
+        DateTime now = DateTime.Now;
+        int presentYear = Convert.ToInt32(now.Year);
+        AGE = Convert.ToString(presentYear - birthyear);
+    }
+    else
+    {
+        AGE = "";
+    }
+
+
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+    <style>
+        .card {
+            transform: scale(0.9);
+            transform-origin: 50% 50%;
+        }
+
+        #searchHelp {
+            margin: -20px;
+            padding: 0px;
+            font-size: 0.75rem;
+            position: relative;
+            left: 870px;
+            bottom: 17px;
+        }
+    </style>
+</head>
+<body>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+
+    }
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">Doctor Dashboard</h3>
+
+    <div id="searchHelp">*use APC for search (SER ##)</div>
+    <div class="card" style="display:flex; width:120%;position:relative;right:125px ">
+        <div class="card-header" style="display:flex; ">
+
+        </div>
+        <div class="card-body" style="display: flex; align-items: center; margin: auto; ">
+            <form asp-controller="Account" asp-action="AddApc" method="post" class="form-group row info">
+                <table class="table-bordered" style="width:stretch">
+                    <tr>
+                        <td>
+                            <div>
+                                <label class="col-sm">Name<span style="color:red">(PTN)</span></label>
+                                <textarea asp-for="patient.Name" class="form-control" asp-page="DoctorDashboard" type="text" id="PTN">@Model.patient.Name</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm"><p style="position:relative;top:8px;font-size:0.825rem">Appointment Code<span style="color:red">(APC)</span></p></label>
+                                <textarea asp-for="vital.AppCode" style="position:relative;bottom:8px" class="form-control" asp-page="DoctorDashboard" type="number" id="APC">@Model.vital.AppCode</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">MRN<span style="color:red">(MRN)</span></label>
+                                <textarea asp-for="patient.PatientId" class="form-control" asp-page="DoctorDashboard" type="number" id="MRN">@Model.patient.PatientId</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Vital ID<span style="color:red">(VID)</span></label>
+                                <textarea asp-for="vital.VitalId" class="form-control" asp-page="DoctorDashboard" type="number" id="VID">@Model.vital.VitalId</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Age<span style="color:red">(AGE)</span></label>
+                                <textarea class="form-control" asp-page="DoctorDashboard" type="number" id="AGE">@AGE</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Date of Birth<span style="color:red">(DOB)</span></label>
+                                <textarea asp-for="patient.Dob" class="form-control" asp-page="DoctorDashboard" type="date" id="DOB">@Model.patient.Dob</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">District<span style="color:red">(DIS)</span></label>
+                                <textarea asp-for="patient.District" class="form-control" asp-page="DoctorDashboard" type="text" id="DIS">@Model.patient.District</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <label class="col-sm">Gender<span style="color:red">(GEN)</span></label>
+                                <textarea asp-for="patient.Gender" class="form-control" asp-page="DoctorDashboard" type="number" id="GEN">@Model.patient.Gender</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">BP<span style="color:red">(BP)</span></label>
+                                <textarea asp-for="vital.Bloodpressure" class="form-control" asp-page="DoctorDashboard" type="number" id="BP">@Model.vital.Bloodpressure</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Pulse<span style="color:red">(PUL)</span></label>
+                                <textarea asp-for="vital.Pulse" class="form-control" asp-page="DoctorDashboard" type="number" id="PUL">@Model.vital.Pulse</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Temperature<span style="color:red">(TEM)</span></label>
+                                <textarea asp-for="vital.Temp" class="form-control" asp-page="DoctorDashboard" type="number" id="TEMP">@Model.vital.Temp</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Blood Group<span style="color:red">(BGP)</span></label>
+                                <textarea asp-for="patient.Bloodgrp" class="form-control" asp-page="DoctorDashboard" type="text" id="BGP">@Model.patient.Bloodgrp</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Height<span style="color:red">(HEI)</span></label>
+                                <textarea asp-for="vital.Height" class="form-control" asp-page="DoctorDashboard" type="number" id="HEI">@Model.vital.Height</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Weight<span style="color:red">(WEI)</span></label>
+                                <textarea asp-for="vital.Weight" class="form-control" asp-page="DoctorDashboard" type="number" id="WEI">@Model.vital.Weight</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">PO2<span style="color:red">(PO2)</span></label>
+                                <textarea asp-for="vital.Po2" class="form-control" asp-page="DoctorDashboard" type="number" id="PO2">@Model.vital.Po2</textarea>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <label class="col-sm">Primary Care Physician<span style="color:red">(PCP)</span></label>
+                                <textarea class="form-control" asp-page="DoctorDashboard" type="text" id="PCP"></textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">BMI<span style="color:red">(BMI)</span></label>
+                                <textarea class="form-control" asp-page="DoctorDashboard" type="number" id="BMI">@BMI</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+        <input type="submit" value="submit" style="width:0px; height:0px" />
+    </div>
+    <script>
+        $(document).ready(() => {
+            $('.info').on('submit', () => {
+                return false;
+            });
+        });
+        $('.info').keypress((e) => {
+            if (e.which === 13) {
+                $('.info').submit();
+                alert('Form submitted successfully.')
+            }
+        })
+    </script>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Past Medical History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Family History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Social History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Allergies</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Current Medications</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Lab Reports</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Images</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Presenting Illness</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Snapshot</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Review of System</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Assessment</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Orders</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Referrals</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Follows Up</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

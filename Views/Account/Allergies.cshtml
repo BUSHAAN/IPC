@@ -1,0 +1,59 @@
+﻿
+@model IPC.ViewModels.RedBoxLayoutViewModel
+@{
+    Layout = "_RedBoxLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/Allergies.css" />
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+
+</head>
+
+<body>
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">Allergies</h3>
+    <div class="card" style="width:50%; margin:auto">
+        <div class="card-header" style="display:flex">
+
+        </div>
+        <div class="card-body" style="display: flex; align-items: center; margin: auto;  ">
+            <form asp-action="post" class="form-group-row">
+
+                <table align="center" class="table-bordered" style="width:300px">
+                    @for (int i = 0; i < Model.check.Allergies.Count; i++)
+                    {
+                        <tr>
+                            <td style="width:150px" class="col-sm">
+                                @Model.check.Allergies[i].AllergyType
+                                @Html.HiddenFor(m => Model.check.Allergies[i].Patient_id)
+                                @Html.HiddenFor(m => Model.check.Allergies[i].AllergyType)
+                            </td>
+
+                            <td style="width:150px" class="col-sm">
+                                <div style="display:flex; justify-content:center;">
+                                    <div>
+                                        @Html.CheckBoxFor(mbox => Model.check.Allergies[i].IsChecked)
+                                    </div>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    }
+                </table>
+
+            </form>
+        </div>
+        <div class="card-footer" style="display:flex;justify-content:center">
+            <div class="btn-pill" align="center">
+                <input type="submit" class="btn btn-pill text-white btn-block btn-primary" style="background-color:#1520A6; width:100px; margin:auto" OnClick="btnSubmit_Click" value="Submit">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+﻿@model IPC.ViewModels.RedBoxLayoutViewModel
+@{Layout = "_noRedLayout";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+    <style>
+        .card {
+            transform: scale(0.9);
+            transform-origin: 50% 50%;
+        }
+
+        #searchHelp {
+            margin: -20px;
+            padding: 0px;
+            font-size: 0.75rem;
+            position: relative;
+            left: 870px;
+            bottom: 17px;
+
+        }
+        span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">ADD Patient</h3>
+
+    <form asp-controller="Account" asp-action="AddNewPatient" method="post" class="form-group row info" style="margin-top:50px">
+        <div class="red-box" style="width: 60%; height: 40px; border: 5px solid red; margin:auto">
+            <input asp-for="command" type="text" style="width:stretch; border:none;text-align:center" placeholder="ADD/BACK" value="" />
+            <span style="position:relative; top: 15px;" asp-validation-for="command"></span>
+
+        </div>
+
+
+        <div class="card" style="display:flex; width:120%;margin:auto">
+            <div class="card-header" style="display:flex">
+
+            </div>
+            <div class="card-body" style="display: flex; align-items: center; margin: auto;  ">
+
+                <table class="table-bordered" style="width:1000px">
+                    <tr>
+                        <td>
+                            <div class="row" style="margin:20px ">
+                                <label class="col-sm">MRN<span style="color:red">(MRN)</span></label>
+                                <input asp-for="patient.PatientId" class="form-control" type="number" id="mrn" ><input />
+                                <span asp-validation-for="patient.PatientId"></span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Name<span style="color:red">(PTN)</span></label>
+                                <input asp-for="patient.Name" class="form-control " type="text" id="name">
+                                <span asp-validation-for="patient.Name"></span>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Date of Birth<span style="color:red">(DOB)</span></label>
+                                <input asp-for="patient.Dob" class="form-control" type="date" id="Date of birth">
+                                <span asp-validation-for="patient.Dob"></span>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">NIC<span style="color:red">(NIC)</span></label>
+                                <input asp-for="patient.Nic" class="form-control" type="text" id="nic">
+                                <span asp-validation-for="patient.Nic"></span>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">TP<span style="color:red">(TP)</span></label>
+                                <input asp-for="patient.Tp" class="form-control" type="text" id="telephone">
+                                <span asp-validation-for="patient.Tp"></span>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm"> District <span style="color:red">(DIS)</span></label>
+                                <input asp-for="patient.District" class="form-control" type="text" id="district">
+                                <span asp-validation-for="patient.District"></span>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Blood Group<span style="color:red">(BG)</span></label>
+                                <select asp-for="patient.Bloodgrp" class="form-control " type="text" id="BG">
+                                    <option value="">Select B-group</option>
+                                    <option>A+</option>
+                                    <option>A-</option>
+                                    <option>B+</option>
+                                    <option>B-</option>
+                                    <option>AB+</option>
+                                    <option>AB-</option>
+                                    <option>O+</option>
+                                    <option>O-</option>
+                                </select>
+                                <span asp-validation-for="patient.Bloodgrp"></span>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">EMAIL<span style="color:red">(EM)</span></label>
+                                <input asp-for="patient.Email" class="form-control" type="email" id="email">
+                                <span asp-validation-for="patient.Email"></span>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm">Gender<span style="color:red">(GEN)</span></label>
+                                <select asp-for="patient.Gender" class="form-control" id="gender">
+                                    <option value="">Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                                <span asp-validation-for="patient.Gender"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm"> Occupation <span style="color:red">(OCC)</span></label>
+                                <input asp-for="patient.Occupation" class="form-control " type="text" id="occupation">
+                                <span asp-validation-for="patient.Occupation"></span>
+                            </div>
+
+                        </td>
+
+                        <td colspan="2">
+                            <div class="row" style="margin:20px">
+                                <label class="col-sm"> Address <span style="color:red">(ADR)</span></label>
+                                <input asp-for="patient.Address" class="form-control " type="text" id="Address">
+                                <span asp-validation-for="patient.Address"></span>
+                            </div>
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" style="width:0px;height:0px" />@{/*style="width:200px ;height:50px" value="submit"*/}
+                        </td>
+                    </tr>
+                </table>
+
+    </form>
+    </div>
+    </div>
+
+   
+</body>
+</html>

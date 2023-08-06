@@ -1,0 +1,44 @@
+﻿input[type="radio"] {
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 2px solid darkgray;
+    background-color: white;
+    border-radius: 50%;
+    align-self: center;
+
+}
+
+.sg-submit-button {
+
+    color: black;
+    background: #5EAFED;
+    height: 40px;
+    width: 100px;
+    border-radius: 10%;
+}
+
+    .sg-submit-button:hover {
+        font: bold;
+        color: black;
+        background: #4393E5;
+        height: 40px;
+        width: 100px;
+    }
+
+input[type="radio"]:checked {
+    background-color: #2FE72F;
+}
+
+.yel input[type="radio"]:checked {
+    background-color: yellow;
+}
+
+

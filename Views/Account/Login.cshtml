@@ -1,0 +1,84 @@
+﻿@model IPC.ViewModels.LoginViewModel
+@{ Layout = "_noNavLayout";
+}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/LoginStyles.css">
+
+    <title>Login #9</title>
+    <style>
+        .val{
+            color:red;
+            font-size:0.75rem;
+        }
+    </style>
+</head>
+<body>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+
+    }
+    <img class="bg-image" src="~/Images/hospital.jpg" />
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- <div class="col-md-6 order-md-2">
+                  <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+                </div> -->
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="form-block">
+                                <div class="mb-4">
+                                    <center><h3 style="color:black"> <strong>ENTER YOUR CREDENTIALS</strong></h3></center>
+
+                                </div>
+                                <form method="post" asp-controller="Account" asp-action="Validate">
+                                    <div class="text-danger"></div>
+                                    <div class="form-group first mt-2">
+                                        <label> Username</label>
+                                        <input asp-for="Username" type="text" class="form-control">
+                                        <span class="val" style="position:absolute; left:100px;width:200px;" asp-validation-for="Username"></span>
+
+                                    </div>
+                                    <div class="form-group last mb-4">
+                                        <label>Password</label>
+                                        <input asp-for="Password" type="password" class="form-control">
+                                        <span class="val" style="position: absolute; left: 100px; width: 200px;" asp-validation-for="Password"></span>
+                                    </div>
+                                    <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-primary" style="background-color:#1520A6;" id="submit-btn">
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/site.js"></script>
+
+</body>
+</html>

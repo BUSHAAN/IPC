@@ -1,0 +1,73 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @model IPC.ViewModels.RedBoxLayoutViewModel
+    @using (Html.BeginForm("RedBoxLayout", "Patient"))
+    {
+        
+    }
+    <title>@ViewData["Title"] - IPC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .bg-image {
+            /* Add the blur effect */
+            filter: blur(100px);
+            -webkit-filter: blur(100px);
+            /* Full height */
+            height: 98%;
+            width: 98%;
+            /* Center and scale the image nicely */
+            margin: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 1%;
+            top: 1%;
+            display: flex;
+            justify-content: center;
+            z-index:-100;
+            opacity:0.5;
+        }
+    </style>
+</head>
+<body>
+    <img class="bg-image" src="~/Images/hospital.jpg" />
+    <header>
+    </header>
+    <div style="display:flex;">
+        <div class="heading-div" style="position:static; top: 40px;">
+            <h2 style="color:blue"> <strong>Intelligent Patient Care System</strong></h2>
+        </div>
+        <div style="position:absolute;top:40px;right:40px">
+            <iframe src="https://free.timeanddate.com/clock/i8d272qt/n1925/fn14/fs22/fcfff/tc22d/ftb/bls0/brs0/bts4/btc00b/pd2/th2" frameborder="0" width="143" height="34"></iframe>
+
+        </div>
+    </div>
+    <form asp-controller="Account" asp-action="Recieve" method="post">
+        <div class="red-box" style="width: 60%; height: 35px; border: 5px solid red;">
+            <input asp-for="command" type="text" style="width:stretch; border:none;text-align:center" placeholder="NEW/DEL/CLR/SER/EDIT" value="" />
+
+        </div>
+    </form>
+
+
+    <form asp-controller="Account" asp-action="Recieve" method="post">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </form>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

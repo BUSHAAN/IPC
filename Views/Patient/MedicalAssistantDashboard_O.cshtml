@@ -1,0 +1,206 @@
+﻿@model IPC.ViewModels.RedBoxLayoutViewModel
+@{Layout = "_RedBoxLayout";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/common.css">
+    <style>
+        .card {
+            transform: scale(0.9);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <h3 style="color:#160B5B; position: absolute; top: 60px; left: 20px">Medical Assistant Dashboard</h3>
+
+
+    <div class="card" style="display:flex; width:120%;position:relative;right:125px ">
+        <div class="card-header" style="display:flex">
+
+        </div>
+        <div class="card-body" style="display: flex; align-items: center; margin: auto;  ">
+            <form action="/" method="post" class="form-group row">
+                <table class="table-bordered" style="width:stretch">
+                    <tr>
+                        <td>
+                            <div>
+                                <label class="col-sm">Name<span style="color:red">(PTN)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="text" id="PTN">@Model.patient.Name</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm"><p style="position:relative;top:8px;font-size:0.825rem">Appointment Code<span style="color:red">(APC)</span></p></label>
+                                <textarea style="position:relative;bottom:8px" class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="APC" ></textarea>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">MRN<span style="color:red">(MRN)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="MRN">@Model.patient.PatientId</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Vital ID<span style="color:red">(VID)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="VID" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Age<span style="color:red">(AGE)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="AGE" /></textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Date of Birth<span style="color:red">(DOB)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="date" id="DOB">@Model.patient.Dob</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">District<span style="color:red">(DIS)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="text" id="DIS" />@Model.patient.District</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <label class="col-sm">Gender<span style="color:red">(GEN)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="GEN" />@Model.patient.Gender</textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">BP<span style="color:red">(BP)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="BP" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Pulse<span style="color:red">(PUL)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="PUL" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Temperature<span style="color:red">(TEM)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="TEMP" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Blood Group<span style="color:red">(BGP)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="text" id="BGP" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Height<span style="color:red">(HEI)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="HEI" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">Weight<span style="color:red">(WEI)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="WEI" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">PO2<span style="color:red">(PO2)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="PO2" />
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <label class="col-sm">Primary Care Physician<span style="color:red">(PCP)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="text" id="PCP" />
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="col-sm">BMI<span style="color:red">(BMI)</span></label>
+                                <textarea class="form-control" asp-page="MedicalAssistantDashboard" type="number" id="BMI" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Past Medical History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Family History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Social History</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Allergies</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Current Medications</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Lab Reports</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Images</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Presenting Illness</h6>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
