@@ -1,5 +1,12 @@
 # Intelligent Patient Care System
 
+<p>
+  <a href="https://dotnet.microsoft.com/en-us/apps/aspnet"><img src="https://img.shields.io/badge/ASP.NET_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="ASP.NET Core"/></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML"/></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS"/></a>
+  <a href="https://img.shields.io/badge/Database-Local-4CAF50?style=for-the-badge" alt="Database"/></a>
+</p>
+
 ## Overview
 
 Welcome to the repository for an Intelligent Patient Care System, designed to streamline medical data management and enhance patient care! Built with ASP.NET Core and basic HTML/CSS, this system empowers patients, medical assistants, and doctors to:
@@ -11,8 +18,7 @@ Welcome to the repository for an Intelligent Patient Care System, designed to st
 
 ## Technologies Used
 
-- **Frontend:** HTML, CSS
-- **Backend:** ASP.NET Core
+- **Web:** HTML, CSS, ASP.NET Core
 - **Database:** Locally populated database
 
 ## Features
